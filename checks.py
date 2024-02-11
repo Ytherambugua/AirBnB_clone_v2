@@ -1,20 +1,42 @@
 #!/usr/bin/python3
-"""
-Contains the definition of the class Square.
-"""
+# Filename: beautiful_code.py
 
-Rectangle = __import__('9-rectangle').Rectangle
+class Calculator:
+    def __init__(self):
+        self.result = 0
+
+    def add(self, num):
+        self.result += num
+
+    def subtract(self, num):
+        self.result -= num
+
+    def multiply(self, num):
+        self.result *= num
+
+    def divide(self, num):
+        if num != 0:
+            self.result /= num
+        else:
+            raise ValueError("Cannot divide by zero")
+
+    def get_result(self):
+        return self.result
 
 
-class Square(Rectangle):
-    """Definition of class Square that inherits from class Rectangle"""
+def main():
+    calc = Calculator()
 
-    def __init__(self, size):
-        """Initialise an instance of the class Square"""
-        super().integer_validator("size", size)
-        super().__init__(size, size)
-        self.__size = size
+    calc.add(5)
+    calc.subtract(2)
+    calc.multiply(3)
+    calc.divide(2)
 
-    def area(self):
-        """Return the area of the square"""
-        return self.__size ** 2
+    result = calc.get_result()
+
+    print(f"Final Result: {result}")
+
+
+if __name__ == "__main__":
+    main()
+
